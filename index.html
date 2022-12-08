@@ -4,21 +4,43 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/ico" href="/js-template/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt</title>
-    <script type="module" crossorigin src="/js-template/assets/index.288365a0.js"></script>
-    <link rel="stylesheet" href="/js-template/assets/index.09951560.css">
+    <title>Dreamweb quiz</title>
+
+    <!--Stylesheets-->
+    
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+    <script type="module" crossorigin src="/js-template/assets/index.27e96b47.js"></script>
+    <link rel="stylesheet" href="/js-template/assets/index.7ccba0d4.css">
   </head>
   <body>
-    <main>
-      <div class="app" id="app"></div> <!-- TODO: går bra att radera -->
-      <!-- TODO: skriv din kod här, innan script-taggen -->
-    </main>
 
-    <!-- TODO
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
+    <!--Header section-->
+    <header>
+      <!--Navbar with links-->
+      <nav>
+        <a href="index.html">Dreamweb</a> 
+      </nav>
+    </header>
+
+    <!--Main section-->
+    <main>
+      <div class="start-quiz-btn-container">
+        <input type="button" class="start-quiz-btn" value="Start quiz">
+      </div>
+      <div class="question-container">
+        <div class="question"></div>
+        <div class="btn-question-container">
+          <button class="btn-answer1 btn-answer"></button>
+          <button class="btn-answer2 btn-answer"></button>
+          <button class="btn-answer3 btn-answer"></button>
+        </div>
+      </div>
+    </main>
     
   </body>
 </html>
