@@ -1,0 +1,102 @@
+/* Colors */ 
+$primaryColor: #151a29;
+$textColor: #f2f2f2;
+$accentColor: #3190FF;
+$accentColorHover: #2a7bd8;
+
+/* Fonts */
+$headingText: Alata, sans-serif;
+$normalText: Roboto, sans-serif;
+
+
+/* Body */
+body {
+    background-color: $primaryColor;
+}
+
+
+/* Header section */
+header {
+    height: 60px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    nav {
+        display: flex;
+
+        a {
+            text-decoration: none;
+            color: $textColor;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: $headingText;
+            background-image: linear-gradient(45deg, #3144d2, #af4261);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+}
+
+
+/* Main section */
+main {
+    color: $textColor;
+    padding: 15px;
+    height: 88vh;
+    text-align: center;
+
+    .start-quiz-btn-container {
+        position: relative;
+        top: 40%;
+        margin: auto;
+    }
+
+    input {
+        font-family: $normalText;
+        color: $textColor;
+        background-color: $accentColor;
+        border: none;
+        padding: 6px 10px;
+        font-size: 1.6rem;
+        width: 160px;
+        margin: auto;
+    }
+
+    input:hover {
+        cursor: pointer;
+        background-color: $accentColorHover;
+    }
+
+    .btn-start-quiz-hidden {
+        display: none;
+    }
+
+    .question-container {
+        display: none;
+        margin-top: 60%;
+
+        .question {
+            font-size: 1.9rem;
+            font-family: $headingText;
+        }
+
+        .btn-question-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            padding-top: 20px;
+
+            .btn-answer {
+                background-color: $primaryColor;
+                color: $textColor;
+                padding: 5px 10px;
+                border: 1px solid $accentColor;
+                font-family: $normalText;
+            }
+        }
+    }
+
+    .quiz-container-visible {
+        display: block;
+    }
+}
