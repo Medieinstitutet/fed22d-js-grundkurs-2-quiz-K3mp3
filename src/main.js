@@ -21,30 +21,45 @@ const questions = [
   },
 ];
 
-let currentQuestion = 0;
-
 /* Function to initialize the website */
 function init() {
   btnStartQuiz = document.querySelector('.start-quiz-btn');
   questionContainer = document.querySelector('.question-container');
   /* Calling functions */
-  btnStartQuiz?.addEventListener('click', showQuestions);
+  btnStartQuiz.addEventListener('click', showQuestions);
+  btnStartQuiz.addEventListener('click', nextQuestion);
+  btnAnswer1.addEventListener('click', checkAnswer)
+  btnAnswer2.addEventListener('click', checkAnswer)
+  btnAnswer3.addEventListener('click', checkAnswer)
 }
 
 
-/* Function to show the quiz questions */
+/* Function to hide the start quiz btn and to show the quiz container */
 function showQuestions() {
   if (btnStartQuiz !== undefined) {
-    console.log('hej');
-    console.log(btnStartQuiz);
     btnStartQuiz.classList.add('btn-start-quiz-hidden');
   } else {
-    console.error(btnStartQuiz);
+
+  }
+  questionContainer.classList.add('quiz-container-visible');
+}
+
+let currentQuestion = 0;
+let points = 0;
+
+
+function checkAnswer(e) {
+  const choosenAnswer = e.currentTarget.innerText;
+
+  if (choosenAnswer == questions[currentQuestion - 1].correctAnswer) {
+    console.log("hej");
   }
 
-  questionContainer.classList.add('quiz-container-visible');
+  console.log(questions.correctAnswer);
+}
 
-  console.log(questions.question)
+/* Function to show the questions*/
+function nextQuestion() {
 
   questionTextDiv.innerHTML = questions[currentQuestion].question
   btnAnswer1.innerHTML = questions[currentQuestion].answerOptions[0]
@@ -52,6 +67,9 @@ function showQuestions() {
   btnAnswer3.innerHTML = questions[currentQuestion].answerOptions[2]
 
   currentQuestion += 1;
+ /* if(choosenAnswer = questions[currentQuestion].correctAnswer) {
+    console.log("correct");
+  }*/
 }
 
 init();

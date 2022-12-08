@@ -2,3 +2,7 @@
 @use "vendor/reset";
 
 @use 'base'; //Base css
+
+@media screen and (min-width: 510px) {
+    @import 'tablet';
+}
