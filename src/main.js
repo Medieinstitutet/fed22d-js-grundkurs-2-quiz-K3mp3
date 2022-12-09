@@ -3,6 +3,8 @@ import './style/style.scss';
 /* Global variables */
 let btnStartQuiz;
 let questionContainer;
+let currentQuestion = 0;
+let points = 0;
 
 const questionTextDiv = document.querySelector('.question');
 const btnAnswer1 = document.querySelector('.btn-answer1');
@@ -18,6 +20,15 @@ const questions = [
       'inte',
     ],
     correctAnswer: 'hej',
+  },
+  {
+    question: 'What is an object?',
+    answerOptions: [
+      'ett',
+      'två',
+      'tre',
+    ],
+    correctAnswer: 'två',
   },
 ];
 
@@ -43,20 +54,20 @@ function showQuestions() {
   }
   questionContainer.classList.add('quiz-container-visible');
 }
-
-let currentQuestion = 0;
-let points = 0;
+console.log(points)
 
 
 function checkAnswer(e) {
   const choosenAnswer = e.currentTarget.innerText;
 
   if (choosenAnswer == questions[currentQuestion - 1].correctAnswer) {
-    console.log("hej");
+    points ++;
   }
+  console.log(points);
 
-  console.log(questions.correctAnswer);
+  nextQuestion();
 }
+
 
 /* Function to show the questions*/
 function nextQuestion() {
