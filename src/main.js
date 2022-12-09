@@ -15,20 +15,29 @@ const questions = [
   {
     question: 'What is a variable?',
     answerOptions: [
-      'hej',
-      'nej',
-      'inte',
+      'A datatype',
+      'A function',
+      'A name of storage location',
     ],
-    correctAnswer: 'hej',
+    correctAnswer: 'A name of storage location',
   },
   {
     question: 'What is an object?',
     answerOptions: [
-      'ett',
-      'två',
-      'tre',
+      'A combination of variables, functions and data structure',
+      'A combination of strings',
+      'A combination of functions',
     ],
-    correctAnswer: 'två',
+    correctAnswer: 'A combination of variables, functions and data structure',
+  },
+  {
+    question: 'Which company developed JavaScript?',
+    answerOptions: [
+      'Microsoft',
+      'Netscape',
+      'IBM',
+    ],
+    correctAnswer: 'Netscape',
   },
 ];
 
