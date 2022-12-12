@@ -14,8 +14,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 
-    <script type="module" crossorigin src="/js-template/assets/index.cff630f0.js"></script>
-    <link rel="stylesheet" href="/js-template/assets/index.057da8aa.css">
+    <script type="module" crossorigin src="/js-template/assets/index.4b673376.js"></script>
+    <link rel="stylesheet" href="/js-template/assets/index.336be08b.css">
   </head>
   <body>
 
@@ -29,16 +29,25 @@
 
     <!--Main section-->
     <main>
+      <!--Div surrounding btn to show questiones when clicked on-->
       <div class="start-quiz-btn-container">
         <input type="button" class="start-quiz-btn" value="Start quiz">
       </div>
+
+      <!--Container surrounding questions-->
       <div class="question-container">
         <div class="question"></div>
         <div class="btn-question-container">
+          <!--Button for each question-->
           <button class="btn-answer1 btn-answer"></button>
           <button class="btn-answer2 btn-answer"></button>
           <button class="btn-answer3 btn-answer"></button>
         </div>
+      </div>
+
+      <!--Div to show total amounts of scored points-->
+      <div class="points-container">
+        <span class="scored-points"></span>
       </div>
     </main>
     
