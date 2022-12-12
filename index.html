@@ -27,16 +27,25 @@
 
     <!--Main section-->
     <main>
+      <!--Div surrounding btn to show questiones when clicked on-->
       <div class="start-quiz-btn-container">
         <input type="button" class="start-quiz-btn" value="Start quiz">
       </div>
+
+      <!--Container surrounding questions-->
       <div class="question-container">
         <div class="question"></div>
         <div class="btn-question-container">
+          <!--Button for each question-->
           <button class="btn-answer1 btn-answer"></button>
           <button class="btn-answer2 btn-answer"></button>
           <button class="btn-answer3 btn-answer"></button>
         </div>
+      </div>
+
+      <!--Div to show total amounts of scored points-->
+      <div class="points-container">
+        <span class="scored-points"></span>
       </div>
     </main>
     <script type="module" src="/src/main.js"></script>

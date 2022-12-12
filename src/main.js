@@ -11,6 +11,9 @@ const btnAnswer1 = document.querySelector('.btn-answer1');
 const btnAnswer2 = document.querySelector('.btn-answer2');
 const btnAnswer3 = document.querySelector('.btn-answer3');
 
+const pointsContainer = document.querySelector('.points-container');
+const scoredPoints = document.querySelector('.scored-points');
+
 const questions = [
   {
     question: 'What is a variable?',
@@ -51,6 +54,9 @@ function init() {
   btnAnswer1.addEventListener('click', checkAnswer)
   btnAnswer2.addEventListener('click', checkAnswer)
   btnAnswer3.addEventListener('click', checkAnswer)
+
+  /* Adding classes to HTML elements */
+  pointsContainer.classList.add('points-container-hidden');
 }
 
 
@@ -62,6 +68,7 @@ function showQuestions() {
 
   }
   questionContainer.classList.add('quiz-container-visible');
+
 }
 console.log(points)
 
@@ -80,6 +87,9 @@ function checkAnswer(e) {
 
 /* Function to show the questions*/
 function nextQuestion() {
+  if (currentQuestion >= questions.length) {
+    showPoints();
+  }
 
   questionTextDiv.innerHTML = questions[currentQuestion].question
   btnAnswer1.innerHTML = questions[currentQuestion].answerOptions[0]
@@ -87,9 +97,21 @@ function nextQuestion() {
   btnAnswer3.innerHTML = questions[currentQuestion].answerOptions[2]
 
   currentQuestion += 1;
- /* if(choosenAnswer = questions[currentQuestion].correctAnswer) {
-    console.log("correct");
-  }*/
+}
+
+
+/* Function which hides the questions and
+   show total amount of scored points */
+function showPoints() {
+  questionContainer.classList.add('quiz-container-hidden');
+  console.log("showPoints")
+  pointsContainer.classList.remove('points-container-hidden');
+
+  if (points > 1 | points == 0) {
+    scoredPoints.innerHTML = `You scored a total amount of ${points} points`; 
+  } else {
+    scoredPoints.innerHTML = `You scored a total amount of ${points} point`; 
+  }
 }
 
 init();
