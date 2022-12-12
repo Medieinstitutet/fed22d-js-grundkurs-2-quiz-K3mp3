@@ -65,10 +65,20 @@ function init() {
   btnAnswer1.addEventListener('click', checkAnswer);
   btnAnswer2.addEventListener('click', checkAnswer);
   btnAnswer3.addEventListener('click', checkAnswer);
-  newGame.addEventListener('click', nextQuestion);
+  newGame.addEventListener('click', playAgain);
 
   /* Adding classes to HTML elements */
   pointsContainer.classList.add('points-container-hidden');
+}
+
+
+/* Function which shows btn to play a new game */
+function playAgain() {
+  btnStartQuiz.classList.remove('btn-start-quiz-hidden');
+  pointsContainer.classList.add('points-container-hidden');
+  currentQuestion = 0;
+  points = 0;
+  showQuestions();
 }
 
 
@@ -76,11 +86,9 @@ function init() {
 function showQuestions() {
   if (btnStartQuiz !== undefined) {
     btnStartQuiz.classList.add('btn-start-quiz-hidden');
-  } else {
+  } 
 
-  }
   questionContainer.classList.add('quiz-container-visible');
-
 }
 console.log(points)
 
@@ -99,6 +107,8 @@ function checkAnswer(e) {
 
 /* Function to show the questions*/
 function nextQuestion() {
+  questionContainer.classList.remove('quiz-container-hidden');
+
   if (currentQuestion >= questions.length) {
     showPoints();
   }
