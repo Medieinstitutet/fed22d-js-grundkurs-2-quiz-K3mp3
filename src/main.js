@@ -54,8 +54,8 @@ const questions = [
   },
 ];
 
+const randomQuestion = questions.sort((a, b) => 0.5 - Math.random()) // Randomization of the questions array
 
-let randomQuestion = questions[Math.floor(Math.random()*questions.length)]; // Randomization of the questions array
 
 
 /* Function to initialize the website */
@@ -82,7 +82,7 @@ function playAgain() {
   pointsContainer.classList.add('points-container-hidden');
   currentQuestion = 0;
   points = 0;
-  showQuestions();
+  init();
 }
 
 
