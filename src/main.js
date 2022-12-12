@@ -5,6 +5,7 @@ let btnStartQuiz;
 let questionContainer;
 let currentQuestion = 0;
 let points = 0;
+let newGame;
 
 const questionTextDiv = document.querySelector('.question');
 const btnAnswer1 = document.querySelector('.btn-answer1');
@@ -57,12 +58,14 @@ const questions = [
 function init() {
   btnStartQuiz = document.querySelector('.start-quiz-btn');
   questionContainer = document.querySelector('.question-container');
+  newGame = document.querySelector('.new-game');
   /* Calling functions */
   btnStartQuiz.addEventListener('click', showQuestions);
   btnStartQuiz.addEventListener('click', nextQuestion);
-  btnAnswer1.addEventListener('click', checkAnswer)
-  btnAnswer2.addEventListener('click', checkAnswer)
-  btnAnswer3.addEventListener('click', checkAnswer)
+  btnAnswer1.addEventListener('click', checkAnswer);
+  btnAnswer2.addEventListener('click', checkAnswer);
+  btnAnswer3.addEventListener('click', checkAnswer);
+  newGame.addEventListener('click', nextQuestion);
 
   /* Adding classes to HTML elements */
   pointsContainer.classList.add('points-container-hidden');

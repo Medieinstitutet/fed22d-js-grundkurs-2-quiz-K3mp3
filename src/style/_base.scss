@@ -105,11 +105,14 @@ main {
     }
 
     .points-container {
-        background-color: $accentColor;
         margin: auto;
         padding: 15px;
         font-size: 1.3rem;
         margin-top: 65%;
+
+        .new-game {
+            margin-top: 15px;
+        }
     }
 
     .points-container-hidden {
