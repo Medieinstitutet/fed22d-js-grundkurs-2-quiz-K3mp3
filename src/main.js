@@ -54,6 +54,10 @@ const questions = [
   },
 ];
 
+
+let randomQuestion = questions[Math.floor(Math.random()*questions.length)]; // Randomization of the questions array
+
+
 /* Function to initialize the website */
 function init() {
   btnStartQuiz = document.querySelector('.start-quiz-btn');
