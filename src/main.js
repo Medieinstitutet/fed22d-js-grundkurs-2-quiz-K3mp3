@@ -42,6 +42,15 @@ const questions = [
     ],
     correctAnswer: 'Netscape',
   },
+  {
+    question: 'Which one of these alternatives is not a JavaScript data type?',
+    answerOptions: [
+      'Number',
+      'Add',
+      'Boolean',
+    ],
+    correctAnswer: 'Add',
+  },
 ];
 
 /* Function to initialize the website */
