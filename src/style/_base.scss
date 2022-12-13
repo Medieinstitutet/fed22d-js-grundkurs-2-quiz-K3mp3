@@ -76,7 +76,7 @@ main {
         margin-top: 50%;
 
         .question {
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             font-family: $headingText;
         }
 
@@ -86,7 +86,7 @@ main {
             gap: 25px;
             padding-top: 20px;
 
-            .btn-answer {
+            .answer-label {
                 background-color: $primaryColor;
                 color: $textColor;
                 padding: 5px 10px;

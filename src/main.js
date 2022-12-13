@@ -14,6 +14,11 @@ const btnAnswer3 = document.querySelector('.btn-answer3');
 
 const pointsContainer = document.querySelector('.points-container');
 const scoredPoints = document.querySelector('.scored-points');
+const labelForAnswerOption1 = document.querySelector('.answer1');
+const labelForAnswerOption2 = document.querySelector('.answer2');
+const labelForAnswerOption3 = document.querySelector('.answer3');
+
+
 
 const questions = [
   {
@@ -149,9 +154,9 @@ function nextQuestion() {
   }
 
   questionTextDiv.innerHTML = questions[currentQuestion].question
-  btnAnswer1.innerHTML = questions[currentQuestion].answerOptions[0]
-  btnAnswer2.innerHTML = questions[currentQuestion].answerOptions[1]
-  btnAnswer3.innerHTML = questions[currentQuestion].answerOptions[2]
+  labelForAnswerOption1.innerHTML = questions[currentQuestion].answerOptions[0]
+  labelForAnswerOption2.innerHTML = questions[currentQuestion].answerOptions[1]
+  labelForAnswerOption3.innerHTML = questions[currentQuestion].answerOptions[2]
 
   currentQuestion += 1;
 }
