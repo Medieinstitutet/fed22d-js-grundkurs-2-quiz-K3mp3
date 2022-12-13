@@ -52,6 +52,33 @@ const questions = [
     ],
     correctAnswer: 'Add',
   },
+  {
+    question: 'Inside which HTML element do you put the JavaScript?',
+    answerOptions: [
+      'Script',
+      'Scripts',
+      'JavaScript',
+    ],
+    correctAnswer: 'Script',
+  },
+  {
+    question: 'What is the correct JavaScript syntax to add content to an HTML element?',
+    answerOptions: [
+      'Variable.add',
+      'Variable.innerHTML',
+      'Variable.HTMLelement',
+    ],
+    correctAnswer: 'Variable.innerHTML',
+  },
+  {
+    question: 'How do you call a JavaScript function?',
+    answerOptions: [
+      'name()',
+      'function name()',
+      'call(name())',
+    ],
+    correctAnswer: 'name()',
+  },
 ];
 
 const randomQuestion = questions.sort((a, b) => 0.5 - Math.random()) // Randomization of the questions array
@@ -100,9 +127,13 @@ console.log(points)
 function checkAnswer(e) {
   const choosenAnswer = e.currentTarget.innerText;
 
-  if (choosenAnswer == questions[currentQuestion - 1].correctAnswer) {
-    points ++;
+  if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
+    points -= 1;
+    console.log(points);
+  } else {
+      points += 1;
   }
+    
   console.log(points);
 
   nextQuestion();
