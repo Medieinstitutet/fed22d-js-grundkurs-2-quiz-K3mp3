@@ -14,9 +14,13 @@ const btnAnswer3 = document.querySelector('.btn-answer3');
 
 const pointsContainer = document.querySelector('.points-container');
 const scoredPoints = document.querySelector('.scored-points');
+
 const labelForAnswerOption1 = document.querySelector('.answer1');
 const labelForAnswerOption2 = document.querySelector('.answer2');
 const labelForAnswerOption3 = document.querySelector('.answer3');
+const labelForAnswerOptionCheckbox = document.querySelector('.answer-label');
+labelForAnswerOptionCheckbox.checked = true;
+
 
 
 
@@ -140,7 +144,6 @@ function checkAnswer(e) {
   }
     
   console.log(points);
-
   nextQuestion();
 }
 
@@ -148,6 +151,7 @@ function checkAnswer(e) {
 /* Function to show the questions*/
 function nextQuestion() {
   questionContainer.classList.remove('quiz-container-hidden');
+  labelForAnswerOptionCheckbox.checked = false;
 
   if (currentQuestion >= questions.length) {
     showPoints();
