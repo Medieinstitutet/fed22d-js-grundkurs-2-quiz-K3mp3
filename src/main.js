@@ -8,9 +8,16 @@ let points = 0;
 let newGame;
 
 const questionTextDiv = document.querySelector('.question');
+
+/*Constans for each label element regarding the question area*/
+const labelForQuestion1 = document.querySelector('.label-for-question1');
+const labelForQuestion2 = document.querySelector('.label-for-question2');
+const labelForQuestion3 = document.querySelector('.label-for-question3');
+
 const btnAnswer1 = document.querySelector('.btn-answer1');
 const btnAnswer2 = document.querySelector('.btn-answer2');
 const btnAnswer3 = document.querySelector('.btn-answer3');
+
 
 const pointsContainer = document.querySelector('.points-container');
 const scoredPoints = document.querySelector('.scored-points');
@@ -102,9 +109,9 @@ function init() {
   /* Calling functions */
   btnStartQuiz.addEventListener('click', showQuestions);
   btnStartQuiz.addEventListener('click', nextQuestion);
-  labelForAnswerOption1.addEventListener('click', checkAnswer);
-  labelForAnswerOption2.addEventListener('click', checkAnswer);
-  labelForAnswerOption3.addEventListener('click', checkAnswer);
+  labelForQuestion1.addEventListener('click', checkAnswer);
+  labelForQuestion2.addEventListener('click', checkAnswer);
+  labelForQuestion3.addEventListener('click', checkAnswer);
   newGame.addEventListener('click', playAgain);
 
   /* Adding classes to HTML elements */
@@ -133,20 +140,21 @@ function showQuestions() {
 console.log(points)
 
 
+/*Function which job is to check every answer and see if it is correct*/
 function checkAnswer(e) {
   const choosenAnswer = e.currentTarget.innerText;
-  console.log(e.currentTarget);
-  //console.log(choosenAnswer);
+  console.log(choosenAnswer);
 
   if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
     points -= 1;
-    console.log(points);
   } else {
       points += 1;
   }
+ 
+  btnAnswer1.checked = false;
+  btnAnswer2.checked = false;
+  btnAnswer3.checked = false;
 
-  
-    
   console.log(points);
   //nextQuestion();
 }
