@@ -1,8 +1,8 @@
 import './style/style.scss';
 
 /* Global variables */
-let btnStartQuiz;
-let questionContainer;
+let btnStartQuiz; //Variable to start the quiz
+let questionContainer; //Variable to the container surrounding the questions
 let currentQuestion = 0;
 let points = 0;
 let newGame;
@@ -18,10 +18,6 @@ const scoredPoints = document.querySelector('.scored-points');
 const labelForAnswerOption1 = document.querySelector('.answer1');
 const labelForAnswerOption2 = document.querySelector('.answer2');
 const labelForAnswerOption3 = document.querySelector('.answer3');
-const labelForAnswerOptionCheckbox = document.querySelector('.answer-label');
-labelForAnswerOptionCheckbox.checked = true;
-
-
 
 
 const questions = [
@@ -102,9 +98,9 @@ function init() {
   /* Calling functions */
   btnStartQuiz.addEventListener('click', showQuestions);
   btnStartQuiz.addEventListener('click', nextQuestion);
-  labelForAnswerOption1.addEventListener('click', checkAnswer);
-  labelForAnswerOption2.addEventListener('click', checkAnswer);
-  labelForAnswerOption3.addEventListener('click', checkAnswer);
+  btnAnswer1.addEventListener('click', checkAnswer);
+  btnAnswer2.addEventListener('click', checkAnswer);
+  btnAnswer3.addEventListener('click', checkAnswer);
   newGame.addEventListener('click', playAgain);
 
   /* Adding classes to HTML elements */
@@ -127,7 +123,6 @@ function showQuestions() {
   if (btnStartQuiz !== undefined) {
     btnStartQuiz.classList.add('btn-start-quiz-hidden');
   } 
-
   questionContainer.classList.add('quiz-container-visible');
 }
 console.log(points)
@@ -135,30 +130,30 @@ console.log(points)
 
 function checkAnswer(e) {
   const choosenAnswer = e.currentTarget.innerText;
-  console.log(e.currentTarget);
-  //console.log(choosenAnswer);
+  console.log(choosenAnswer.innerText);
 
   if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
     points -= 1;
-    console.log(points);
   } else {
       points += 1;
   }
 
-  
+  btnAnswer1.checked = false;
+  btnAnswer2.checked = false;
+  btnAnswer3.checked = false;
     
   console.log(points);
-  //nextQuestion();
+  nextQuestion();
 }
 
 
 /* Function to show the questions*/
 function nextQuestion() {
   questionContainer.classList.remove('quiz-container-hidden');
-  labelForAnswerOptionCheckbox.checked = false;
 
   if (currentQuestion >= questions.length) {
     showPoints();
+    return;
   }
 
   questionTextDiv.innerHTML = questions[currentQuestion].question
@@ -174,7 +169,6 @@ function nextQuestion() {
    show total amount of scored points */
 function showPoints() {
   questionContainer.classList.add('quiz-container-hidden');
-  console.log("showPoints")
   pointsContainer.classList.remove('points-container-hidden');
 
   if (points > 1 | points == 0) {
