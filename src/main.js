@@ -138,8 +138,8 @@ function showQuestions() {
 
 
 function checkAnswer(e) {
-  const choosenAnswer = e.currentTarget.innerText;
-  //console.log(choosenAnswer);
+  const choosenAnswer = e.currentTarget.innerText.trim();
+  console.log(choosenAnswer);
 
   if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
     points -= 1;
