@@ -1,13 +1,13 @@
 import './style/style.scss';
 
 /* Global variables */
-let btnStartQuiz;
-let questionContainer;
-let currentQuestion = 0;
-let points = 0;
-let newGame;
+let btnStartQuiz; // Variable which is used to start the quiz
+let questionContainer; // Variable for the container surrounding the questions
+let currentQuestion = 0; // Variable to count which question is displayed
+let points = 0; // Variable used to count points after each answer
+let newGame; // Variable which is used to start a new game after finished
 
-const questionTextDiv = document.querySelector('.question');
+const questionTextDiv = document.querySelector('.question'); // Variable used to display the question in the HTML-element for questions
 const labelForQuestion1 = document.querySelector('.label-for-question1');
 const labelForQuestion2 = document.querySelector('.label-for-question2');
 const labelForQuestion3 = document.querySelector('.label-for-question3');
@@ -103,13 +103,10 @@ function init() {
   btnStartQuiz.addEventListener('click', showQuestions);
   btnStartQuiz.addEventListener('click', nextQuestion);
 
-  answer1.addEventListener('click', checkAnswer);
-  answer2.addEventListener('click', checkAnswer);
-  answer3.addEventListener('click', checkAnswer);
+  labelForQuestion1.addEventListener('click', checkAnswer);
+  labelForQuestion2.addEventListener('click', checkAnswer);
+  labelForQuestion3.addEventListener('click', checkAnswer);
 
-  /*labelForAnswerOption1.addEventListener('click', checkAnswer);
-  labelForAnswerOption2.addEventListener('click', checkAnswer);
-  labelForAnswerOption3.addEventListener('click', checkAnswer);*/
   newGame.addEventListener('click', playAgain);
 
   /* Adding classes to HTML elements */
