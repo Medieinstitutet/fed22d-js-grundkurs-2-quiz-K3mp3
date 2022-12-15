@@ -7,23 +7,22 @@ let currentQuestion = 0;
 let points = 0;
 let newGame;
 
+const questionTextDiv = document.querySelector('.question');
 const labelForQuestion1 = document.querySelector('.label-for-question1');
 const labelForQuestion2 = document.querySelector('.label-for-question2');
 const labelForQuestion3 = document.querySelector('.label-for-question3');
+
+const answer1 = document.querySelector('.answer1');
+const answer2 = document.querySelector('.answer2');
+const answer3 = document.querySelector('.answer3');
 
 const btnAnswer1 = document.querySelector('.btn-answer1');
 const btnAnswer2 = document.querySelector('.btn-answer2');
 const btnAnswer3 = document.querySelector('.btn-answer3');
 
-const labelForAnswerOption1 = document.querySelector('.answer1');
-const labelForAnswerOption2 = document.querySelector('.answer2');
-const labelForAnswerOption3 = document.querySelector('.answer3');
-
-const questionTextDiv = document.querySelector('.question');
-
-
 const pointsContainer = document.querySelector('.points-container');
 const scoredPoints = document.querySelector('.scored-points');
+
 
 const questions = [
   {
@@ -103,9 +102,14 @@ function init() {
   /* Calling functions */
   btnStartQuiz.addEventListener('click', showQuestions);
   btnStartQuiz.addEventListener('click', nextQuestion);
-  labelForAnswerOption1.addEventListener('click', checkAnswer);
+
+  answer1.addEventListener('click', checkAnswer);
+  answer2.addEventListener('click', checkAnswer);
+  answer3.addEventListener('click', checkAnswer);
+
+  /*labelForAnswerOption1.addEventListener('click', checkAnswer);
   labelForAnswerOption2.addEventListener('click', checkAnswer);
-  labelForAnswerOption3.addEventListener('click', checkAnswer);
+  labelForAnswerOption3.addEventListener('click', checkAnswer);*/
   newGame.addEventListener('click', playAgain);
 
   /* Adding classes to HTML elements */
@@ -135,20 +139,16 @@ function showQuestions() {
 
 function checkAnswer(e) {
   const choosenAnswer = e.currentTarget.innerText;
-  console.log(choosenAnswer);
+  //console.log(choosenAnswer);
 
   if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
     points -= 1;
   } else {
       points += 1;
   }
-
-  btnAnswer1.checked = false;
-  btnAnswer2.checked = false;
-  btnAnswer3.checked = false;
     
   console.log(points);
-  nextQuestion();
+  //nextQuestion();
 }
 
 
@@ -161,9 +161,9 @@ function nextQuestion() {
   }
 
   questionTextDiv.innerHTML = questions[currentQuestion].question
-  labelForAnswerOption1.innerHTML = questions[currentQuestion].answerOptions[0]
-  labelForAnswerOption2.innerHTML = questions[currentQuestion].answerOptions[1]
-  labelForAnswerOption3.innerHTML = questions[currentQuestion].answerOptions[2]
+  answer1.innerHTML = questions[currentQuestion].answerOptions[0]
+  answer2.innerHTML = questions[currentQuestion].answerOptions[1]
+  answer3.innerHTML = questions[currentQuestion].answerOptions[2]
 
   currentQuestion += 1;
 }
