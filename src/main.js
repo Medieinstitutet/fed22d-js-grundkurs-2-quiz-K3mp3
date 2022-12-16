@@ -1,34 +1,27 @@
 import './style/style.scss';
 
 /* Global variables */
-let btnStartQuiz;
-let questionContainer;
-let currentQuestion = 0;
-let points = 0;
-let newGame;
+let btnStartQuiz; // Variable which is used to start the quiz
+let questionContainer; // Variable for the container surrounding the questions
+let currentQuestion = 0; // Variable to count which question is displayed
+let points = 0; // Variable used to count points after each answer
+let newGame; // Variable which is used to start a new game after finished
 
-const questionTextDiv = document.querySelector('.question');
-
-/*Constans for each label element regarding the question area*/
+const questionTextDiv = document.querySelector('.question'); // Variable used to display the question in the HTML-element for questions
 const labelForQuestion1 = document.querySelector('.label-for-question1');
 const labelForQuestion2 = document.querySelector('.label-for-question2');
 const labelForQuestion3 = document.querySelector('.label-for-question3');
+
+const answer1 = document.querySelector('.answer1');
+const answer2 = document.querySelector('.answer2');
+const answer3 = document.querySelector('.answer3');
 
 const btnAnswer1 = document.querySelector('.btn-answer1');
 const btnAnswer2 = document.querySelector('.btn-answer2');
 const btnAnswer3 = document.querySelector('.btn-answer3');
 
-
 const pointsContainer = document.querySelector('.points-container');
 const scoredPoints = document.querySelector('.scored-points');
-
-const labelForAnswerOption1 = document.querySelector('.answer1');
-const labelForAnswerOption2 = document.querySelector('.answer2');
-const labelForAnswerOption3 = document.querySelector('.answer3');
-const labelForAnswerOptionCheckbox = document.querySelector('.answer-label');
-labelForAnswerOptionCheckbox.checked = true;
-
-
 
 
 const questions = [
@@ -109,9 +102,11 @@ function init() {
   /* Calling functions */
   btnStartQuiz.addEventListener('click', showQuestions);
   btnStartQuiz.addEventListener('click', nextQuestion);
+
   labelForQuestion1.addEventListener('click', checkAnswer);
   labelForQuestion2.addEventListener('click', checkAnswer);
   labelForQuestion3.addEventListener('click', checkAnswer);
+
   newGame.addEventListener('click', playAgain);
 
   /* Adding classes to HTML elements */
@@ -137,12 +132,10 @@ function showQuestions() {
 
   questionContainer.classList.add('quiz-container-visible');
 }
-console.log(points)
 
 
-/*Function which job is to check every answer and see if it is correct*/
 function checkAnswer(e) {
-  const choosenAnswer = e.currentTarget.innerText;
+  const choosenAnswer = e.currentTarget.innerText.trim();
   console.log(choosenAnswer);
 
   if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
@@ -150,11 +143,7 @@ function checkAnswer(e) {
   } else {
       points += 1;
   }
- 
-  btnAnswer1.checked = false;
-  btnAnswer2.checked = false;
-  btnAnswer3.checked = false;
-
+    
   console.log(points);
   //nextQuestion();
 }
@@ -163,16 +152,15 @@ function checkAnswer(e) {
 /* Function to show the questions*/
 function nextQuestion() {
   questionContainer.classList.remove('quiz-container-hidden');
-  labelForAnswerOptionCheckbox.checked = false;
 
   if (currentQuestion >= questions.length) {
     showPoints();
   }
 
   questionTextDiv.innerHTML = questions[currentQuestion].question
-  labelForAnswerOption1.innerHTML = questions[currentQuestion].answerOptions[0]
-  labelForAnswerOption2.innerHTML = questions[currentQuestion].answerOptions[1]
-  labelForAnswerOption3.innerHTML = questions[currentQuestion].answerOptions[2]
+  answer1.innerHTML = questions[currentQuestion].answerOptions[0]
+  answer2.innerHTML = questions[currentQuestion].answerOptions[1]
+  answer3.innerHTML = questions[currentQuestion].answerOptions[2]
 
   currentQuestion += 1;
 }
