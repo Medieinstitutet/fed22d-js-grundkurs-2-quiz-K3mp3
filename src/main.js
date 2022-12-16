@@ -7,8 +7,6 @@ let currentQuestion = 0; // Variable to count which question is displayed
 let points = 0; // Variable used to count points after each answer
 let newGame; // Variable which is used to start a new game after finished
 
-const usernameInput = document.querySelector('.username-input');
-
 const questionTextDiv = document.querySelector('.question'); // Variable used to display the question in the HTML-element for questions
 const labelForQuestion1 = document.querySelector('.label-for-question1');
 const labelForQuestion2 = document.querySelector('.label-for-question2');
@@ -21,6 +19,8 @@ const answer3 = document.querySelector('.answer3');
 const btnAnswer1 = document.querySelector('.btn-answer1');
 const btnAnswer2 = document.querySelector('.btn-answer2');
 const btnAnswer3 = document.querySelector('.btn-answer3');
+
+const nextQuestionBtn = document.querySelector('.next-question');
 
 const pointsContainer = document.querySelector('.points-container');
 const scoredPoints = document.querySelector('.scored-points');
@@ -113,7 +113,6 @@ function init() {
 
   /* Adding classes to HTML elements */
   pointsContainer.classList.add('points-container-hidden');
-  console.log(usernameInput.value)
 }
 
 
@@ -152,8 +151,11 @@ function checkAnswer(e) {
   btnAnswer2.checked = false;
   btnAnswer3.checked = false;
 
-  let timer = setTimeout(nextQuestion, 3000); // Variable to set a timer to three seconds
-  timer;
+  if((btnAnswer1.checked = true) || (btnAnswer2.checked = true) || (btnAnswer3.checked = true)) {
+    nextQuestionBtn.addEventListener('click', nextQuestion);
+  } else {
+    alert('You have to select atleast one answer!');
+  }
 }
 
 
