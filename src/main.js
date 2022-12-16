@@ -7,6 +7,8 @@ let currentQuestion = 0; // Variable to count which question is displayed
 let points = 0; // Variable used to count points after each answer
 let newGame; // Variable which is used to start a new game after finished
 
+const usernameInput = document.querySelector('.username-input');
+
 const questionTextDiv = document.querySelector('.question'); // Variable used to display the question in the HTML-element for questions
 const labelForQuestion1 = document.querySelector('.label-for-question1');
 const labelForQuestion2 = document.querySelector('.label-for-question2');
@@ -111,6 +113,7 @@ function init() {
 
   /* Adding classes to HTML elements */
   pointsContainer.classList.add('points-container-hidden');
+  console.log(usernameInput.value)
 }
 
 
@@ -145,12 +148,18 @@ function checkAnswer(e) {
   }
     
   console.log(points);
-  //nextQuestion();
+  btnAnswer1.checked = false;
+  btnAnswer2.checked = false;
+  btnAnswer3.checked = false;
+
+  let timer = setTimeout(nextQuestion, 3000); // Variable to set a timer to three seconds
+  timer;
 }
 
 
 /* Function to show the questions*/
 function nextQuestion() {
+
   questionContainer.classList.remove('quiz-container-hidden');
 
   if (currentQuestion >= questions.length) {
