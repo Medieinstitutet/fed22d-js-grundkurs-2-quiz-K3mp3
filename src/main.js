@@ -137,6 +137,7 @@ function showQuestions() {
 
 
 function checkAnswer(e) {
+  
   const choosenAnswer = e.currentTarget.innerText.trim();
   console.log(choosenAnswer);
 
@@ -147,20 +148,22 @@ function checkAnswer(e) {
   }
     
   console.log(points);
-  btnAnswer1.checked = false;
-  btnAnswer2.checked = false;
-  btnAnswer3.checked = false;
 
   if((btnAnswer1.checked = true) || (btnAnswer2.checked = true) || (btnAnswer3.checked = true)) {
     nextQuestionBtn.addEventListener('click', nextQuestion);
   } else {
     alert('You have to select atleast one answer!');
   }
+
+  //nextQuestion();
 }
 
 
 /* Function to show the questions*/
 function nextQuestion() {
+  btnAnswer1.checked = false;
+  btnAnswer2.checked = false;
+  btnAnswer3.checked = false;
 
   questionContainer.classList.remove('quiz-container-hidden');
 
@@ -179,15 +182,16 @@ function nextQuestion() {
 
 /* Function which hides the questions and
    show total amount of scored points */
-function showPoints() {
+function showPoints() { //Dela antal poäng med två?
   questionContainer.classList.add('quiz-container-hidden');
   console.log("showPoints")
   pointsContainer.classList.remove('points-container-hidden');
+   let totPoints = points / 2;
 
   if (points > 1 | points == 0) {
-    scoredPoints.innerHTML = `You scored a total amount of ${points} points`; 
+    scoredPoints.innerHTML = `You scored a total amount of ${totPoints} points`; 
   } else {
-    scoredPoints.innerHTML = `You scored a total amount of ${points} point`; 
+    scoredPoints.innerHTML = `You scored a total amount of ${totPoints} point`; 
   }
 }
 
