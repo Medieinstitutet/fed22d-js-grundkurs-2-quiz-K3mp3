@@ -8,9 +8,9 @@ let points = 0; // Variable used to count points after each answer
 let newGame; // Variable which is used to start a new game after finished
 
 const questionTextDiv = document.querySelector('.question'); // Variable used to display the question in the HTML-element for questions
-const labelForQuestion1 = document.querySelector('.label-for-question1');
-const labelForQuestion2 = document.querySelector('.label-for-question2');
-const labelForQuestion3 = document.querySelector('.label-for-question3');
+const labelForQuestion1 = document.querySelector('.label-for-question1 span');
+const labelForQuestion2 = document.querySelector('.label-for-question2 span');
+const labelForQuestion3 = document.querySelector('.label-for-question3 span');
 
 const answer1 = document.querySelector('.answer1');
 const answer2 = document.querySelector('.answer2');
