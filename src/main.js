@@ -108,6 +108,14 @@ function init() {
   nextQuestionBtn.addEventListener('click', checkAnswer);
   btnStartQuiz.addEventListener('click', checkAnswer);
 
+  labelForQuestion1.addEventListener('click', countPoints);
+  labelForQuestion2.addEventListener('click', countPoints);
+  labelForQuestion3.addEventListener('click', countPoints);
+
+  btnAnswer1.addEventListener('click', countPoints);
+  btnAnswer2.addEventListener('click', countPoints);
+  btnAnswer3.addEventListener('click', countPoints);
+
   newGame.addEventListener('click', playAgain);
 
   /* Adding classes to HTML elements */
@@ -137,10 +145,31 @@ function showQuestions() {
 
 function checkAnswer() {
 
-  labelForQuestion1.addEventListener('click', countPoints);
-  labelForQuestion2.addEventListener('click', countPoints);
-  labelForQuestion3.addEventListener('click', countPoints);
-    
+  if (btnAnswer1.checked == true) {
+    if (answer1.innerText.trim() !== questions[currentQuestion - 1].correctAnswer) {
+      points -= 1;
+    } else {
+      points += 1;
+    }
+   }
+
+   if (btnAnswer2.checked == true) {
+    if (answer2.innerText.trim() !== questions[currentQuestion - 1].correctAnswer) {
+      console.log(answer2.innerText.trim())
+      points -= 1;
+    } else {
+      points += 1;
+    }
+   }
+
+   if (btnAnswer3.checked == true) {
+    if (answer3.innerText.trim() !== questions[currentQuestion - 1].correctAnswer) {
+      points -= 1;
+    } else {
+      points += 1;
+    }
+   }
+   
   console.log(points);
   nextQuestion();
 }
@@ -148,14 +177,19 @@ function checkAnswer() {
 
 /* Function which will count points from each answer */
 function countPoints(e) {
-  const choosenAnswer = e.currentTarget.innerText.trim();
+  let choosenAnswer = e.currentTarget.innerText.trim();
+
+  if(e.target.nodeName == "INPUT") {
+    choosenAnswer = e.target.previousElementSibling.innerText.trim();
+  }
+
   console.log(choosenAnswer);
 
-  if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
+ /* if (choosenAnswer !== questions[currentQuestion - 1].correctAnswer) {
     points -= 1;
   } else {
       points += 1;
-  }
+  }*/
 }
 
 
