@@ -8,9 +8,9 @@ let points = 0; // Variable used to count points after each answer
 let newGame; // Variable which is used to start a new game after finished
 
 const questionTextDiv = document.querySelector('.question'); // Variable used to display the question in the HTML-element for questions
-const labelForQuestion1 = document.querySelector('.label-for-question1');
-const labelForQuestion2 = document.querySelector('.label-for-question2');
-const labelForQuestion3 = document.querySelector('.label-for-question3');
+const labelForQuestion1 = document.querySelector('.label-for-question1 span');
+const labelForQuestion2 = document.querySelector('.label-for-question2 span');
+const labelForQuestion3 = document.querySelector('.label-for-question3 span');
 
 const answer1 = document.querySelector('.answer1');
 const answer2 = document.querySelector('.answer2');
@@ -105,9 +105,8 @@ function init() {
   btnStartQuiz.addEventListener('click', showQuestions);
   btnStartQuiz.addEventListener('click', nextQuestion);
 
-  labelForQuestion1.addEventListener('click', checkAnswer);
-  labelForQuestion2.addEventListener('click', checkAnswer);
-  labelForQuestion3.addEventListener('click', checkAnswer);
+  nextQuestionBtn.addEventListener('click', checkAnswer);
+  btnStartQuiz.addEventListener('click', checkAnswer);
 
   newGame.addEventListener('click', playAgain);
 
@@ -136,8 +135,19 @@ function showQuestions() {
 }
 
 
-function checkAnswer(e) {
-  
+function checkAnswer() {
+
+  labelForQuestion1.addEventListener('click', countPoints);
+  labelForQuestion2.addEventListener('click', countPoints);
+  labelForQuestion3.addEventListener('click', countPoints);
+    
+  console.log(points);
+  nextQuestion();
+}
+
+
+/* Function which will count points from each answer */
+function countPoints(e) {
   const choosenAnswer = e.currentTarget.innerText.trim();
   console.log(choosenAnswer);
 
@@ -146,16 +156,6 @@ function checkAnswer(e) {
   } else {
       points += 1;
   }
-    
-  console.log(points);
-
-  if((btnAnswer1.checked = true) || (btnAnswer2.checked = true) || (btnAnswer3.checked = true)) {
-    nextQuestionBtn.addEventListener('click', nextQuestion);
-  } else {
-    alert('You have to select atleast one answer!');
-  }
-
-  //nextQuestion();
 }
 
 
@@ -182,11 +182,11 @@ function nextQuestion() {
 
 /* Function which hides the questions and
    show total amount of scored points */
-function showPoints() { //Dela antal poäng med två?
+function showPoints() {
   questionContainer.classList.add('quiz-container-hidden');
   console.log("showPoints")
   pointsContainer.classList.remove('points-container-hidden');
-   let totPoints = points / 2;
+   let totPoints = points;
 
   if (points > 1 | points == 0) {
     scoredPoints.innerHTML = `You scored a total amount of ${totPoints} points`; 
