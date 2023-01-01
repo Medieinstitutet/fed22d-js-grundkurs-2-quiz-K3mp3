@@ -90,6 +90,33 @@ const questions = [
     ],
     correctAnswer: 'name()',
   },
+  {
+    question: 'How do you round up a number in JavaScript using the inbuilt functionality?',
+    answerOptions: [
+      'rund()',
+      'Math.roundUp()',
+      'Math.ceil()',
+    ],
+    correctAnswer: 'Math.ceil()',
+  },
+  {
+    question: 'How do you write a block comment in JavaScript?',
+    answerOptions: [
+      '/*comment*/',
+      '<!--comment-->',
+      '//comment',
+    ],
+    correctAnswer: '/*comment*/',
+  },
+  {
+    question: 'Which of the following retrieves the last element from an array?',
+    answerOptions: [
+      'arr[arr.length]',
+      'arr[arr.length - 1]',
+      'arr[1 - arr.length]',
+    ],
+    correctAnswer: 'arr[arr.length - 1]',
+  },
 ];
 
 const randomQuestion = questions.sort((a, b) => 0.5 - Math.random()) // Randomization of the questions array
