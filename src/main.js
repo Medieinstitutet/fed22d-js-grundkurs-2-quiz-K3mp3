@@ -103,7 +103,7 @@ const questions = [
     question: 'How do you write a block comment in JavaScript?',
     answerOptions: [
       '/*comment*/',
-      '<!--comment-->',
+      '//comment//',
       '//comment',
     ],
     correctAnswer: '/*comment*/',
