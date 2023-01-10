@@ -4,19 +4,62 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projekt</title>
+    <title>Dreamweb quiz</title>
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="src/style/style.scss">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
   </head>
   <body>
-    <main>
-      <div class="app" id="app"></div> <!-- TODO: går bra att radera -->
-      <!-- TODO: skriv din kod här, innan script-taggen -->
-    </main>
 
-    <!-- TODO
-    - Validera HTML (kopiera den renderade HTML-koden): https://validator.w3.org/#validate_by_input
-    - Kontrollera tillgänglighet: https://www.a11yproject.com/checklist/ & Chrome Lighthouse/Firefox Accessibility Tools
-    - Validera genererade CSS: https://jigsaw.w3.org/css-validator/#validate_by_input
-    -->
-    <script type="module" src="/src/main.ts"></script>
+    <!--Header section-->
+    <header>
+      <!--Navbar with links-->
+      <nav>
+        <a href="index.html">Dreamweb</a> 
+      </nav>
+    </header>
+
+    <!--Main section-->
+    <main>
+      <!--Div surrounding btn to show questiones when clicked on-->
+      <div class="start-quiz-btn-container">
+        <input type="button" class="start-quiz-btn btn-design" value="Start quiz">
+      </div>
+
+      <!--Container surrounding questions-->
+      <div class="question-container">
+        <div class="question"></div>
+        <div class="btn-question-container">
+          <!--Button for each question-->
+          <label class="label-for-question1">
+            <span class="answer1 answer-label"></span>
+            <input type="checkbox" class="btn-answer1 answer-option" name="answer1">
+          </label>
+          <label class="label-for-question2">
+            <span class="answer2 answer-label"></span>
+            <input type="checkbox" class="btn-answer2 answer-option" name="answer2">
+          </label>
+
+          <label class="label-for-question3">
+            <span class="answer3 answer-label"></span>
+            <input type="checkbox" class="btn-answer3 answer-option" name="answer3">
+          </label>
+        </div>
+        <input type="button" class="next-question btn-design" value="Next question">
+      </div>
+
+      <!--Div to show total amounts of scored points-->
+      <div class="points-container">
+        <span class="scored-points"></span>
+        <input type="button" class="new-game" value="Play again">
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>
